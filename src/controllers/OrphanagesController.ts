@@ -50,7 +50,7 @@ export default {
       about,
       instructions,
       opening_hours,
-      open_on_weekends,
+      open_on_weekends: open_on_weekends === "true" ? true : false,
       images,
     };
 
@@ -68,6 +68,8 @@ export default {
         })
       ),
     });
+
+    const finalData = schema.cast(data);
 
     await schema.validate(data, {
       abortEarly: false,
